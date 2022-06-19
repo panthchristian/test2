@@ -1,22 +1,22 @@
 FROM docker:20.10.17-dind
 
-RUN apk add --update --no-cache openssh 
+# RUN apk add --update --no-cache openssh 
 
-RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
+# RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 
-RUN adduser -h /home/vansh -s /bin/sh -D vansh
+# RUN adduser -h /home/vansh -s /bin/sh -D vansh
 
-RUN echo -n 'vansh:some_password_here' | chpasswd
+# RUN echo -n 'vansh:some_password_here' | chpasswd
 
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 22
+# EXPOSE 22
 
-COPY entrypoint.sh /
+# COPY entrypoint.sh /
 
-RUN chmod +x -v entrypoint.sh
+# RUN chmod +x -v entrypoint.sh
 
-RUN cat /etc/os-release
+# RUN cat /etc/os-release
 
 # RUN docker run -d \
 #     --name pihole \
@@ -33,4 +33,7 @@ RUN cat /etc/os-release
 #     -e ServerIP="0.0.0.0" \
 #     pihole/pihole:latest
 
-RUN ip addr
+# RUN ip addr
+
+
+RUN docker-compose.yml
