@@ -16,7 +16,7 @@ COPY entrypoint.sh /
 
 RUN chmod +x -v entrypoint.sh
 
-RUN sudo dockerd
+RUN systemctl restart docker
 
 RUN docker run -d \
     --name pihole \
