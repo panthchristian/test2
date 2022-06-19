@@ -6,7 +6,7 @@ RUN apt update -y && apt upgrade -y && apt install bash -y && apt install wget -
 
 RUN wget -O basic-install.sh https://install.pi-hole.net
 
-RUN bash basic-install.sh
+RUN sh basic-install.sh
 
 # RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 
