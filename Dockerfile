@@ -2,9 +2,11 @@ FROM debian:latest
 
 USER root
 
-RUN apt update -y && apt upgrade -y && apt install bash -y && apt install curl -y && dpkg-reconfigure tzdata
+RUN apt update -y && apt upgrade -y && apt install bash -y && apt install wget -y && dpkg-reconfigure tzdata
 
-RUN curl -sSL https://install.pi-hole.net | bash
+RUN wget -O basic-install.sh https://install.pi-hole.net
+
+RUN bash basic-install.sh
 
 # RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 
