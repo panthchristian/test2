@@ -6,7 +6,7 @@ RUN git clone https://gitlab.com/yvelon/pi-hole
 
 RUN cd pi-hole
 
-RUN bash automated\ install/basic-install.sh -y
+RUN bash automated\ install/basic-install.sh
 
 # RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 
