@@ -16,6 +16,8 @@ COPY entrypoint.sh /
 
 RUN chmod +x -v entrypoint.sh
 
+RUN sudo dockerd
+
 RUN docker run -d \
     --name pihole \
     -p 53:53/tcp -p 53:53/udp \
