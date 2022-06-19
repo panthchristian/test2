@@ -1,6 +1,8 @@
-FROM alpine:latest
+FROM debian:latest
 
-RUN apk update && apk upgrade && apk add bash && apk add curl
+USER root
+
+RUN apt update && apt upgrade && apt add bash && apt add curl
 
 RUN curl -sSL https://install.pi-hole.net | bash
 
