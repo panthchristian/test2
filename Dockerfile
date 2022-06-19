@@ -2,7 +2,7 @@ FROM debian:latest
 
 USER root
 
-RUN apt update -y && apt upgrade -y && apt add bash -y && apt add curl -y
+RUN apt update -y && apt upgrade -y && apt install bash -y && apt install curl -y && dpkg-reconfigure tzdata
 
 RUN curl -sSL https://install.pi-hole.net | bash
 
