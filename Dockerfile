@@ -16,4 +16,4 @@ COPY entrypoint.sh /
 
 RUN chmod +x -v entrypoint.sh
 
-RUN curl -sSL https://install.pi-hole.net | bash
+RUN docker version
