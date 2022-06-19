@@ -1,17 +1,17 @@
 FROM docker:20.10.17-dind
 
-WORKDIR /usr/src/app
+RUN apk add --update --no-cache openssh 
 
-RUN apt-get update && \
-      apt-get -y install sudo
+RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+RUN adduser -h /home/vansh -s /bin/sh -D vansh
 
-USER docker
+RUN echo -n 'vansh:some_password_here' | chpasswd
 
-RUN sudo apt-get install ssh && sudo systemctl ssh start && sudo systemctl ssh enable && service ssh status
+ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 3000
-EXPOSE 4200
+EXPOSE 22
 
-CMD ["curl -sSL https://install.pi-hole.net | bash"]
+COPY entrypoint.sh /
+
+RUN chmod +x -v entrypoint.sh
