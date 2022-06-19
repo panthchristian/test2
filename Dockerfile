@@ -2,9 +2,12 @@ FROM docker:20.10.17-dind
 
 WORKDIR /usr/src/app
 
-USER root
+RUN apt-get update && \
+      apt-get -y install sudo
 
-RUN sudo apt-get update -y && sudo apt-get upgrade
+RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+
+USER docker
 
 RUN sudo apt-get install ssh && sudo systemctl ssh start && sudo systemctl ssh enable && service ssh status
 
