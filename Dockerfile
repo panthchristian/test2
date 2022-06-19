@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 USER root
 
-RUN apt update -y && apt upgrade -y
+# RUN apt update -y && apt upgrade -y
 
 RUN sudo apt install ssh && sudo systemctl ssh start && sudo systemctl ssh enable && service ssh status
 
