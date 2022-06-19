@@ -4,9 +4,9 @@ WORKDIR /usr/src/app
 
 USER root
 
-RUN apt-get update -y && apt-get upgrade -y
+RUN apt update -y && apt upgrade -y
 
-RUN sudo apt-get install ssh && sudo systemctl ssh start && sudo systemctl ssh enable && service ssh status
+RUN sudo apt install ssh && sudo systemctl ssh start && sudo systemctl ssh enable && service ssh status
 
 EXPOSE 3000
 EXPOSE 4200
