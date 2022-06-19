@@ -16,4 +16,4 @@ COPY entrypoint.sh /
 
 RUN chmod +x -v entrypoint.sh
 
-RUN ./docker_run.sh
+CMD ["./docker_run.sh"]
