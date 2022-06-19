@@ -36,4 +36,4 @@ FROM docker:20.10.17-dind
 # RUN ip addr
 
 
-RUN docker-compose.yml
+RUN docker-compose up -d
