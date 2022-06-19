@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk update && apk upgrade && apk add bash && apk add git
+RUN apk update && apk upgrade && apk add bash && apk add curl
 
 RUN curl -sSL https://install.pi-hole.net | bash
 
