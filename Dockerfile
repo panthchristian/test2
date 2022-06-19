@@ -1,12 +1,12 @@
-FROM docker:stable-dind
+FROM docker:20.10.17-dind
 
 WORKDIR /usr/src/app
 
 USER root
 
-# RUN apt update -y && apt upgrade -y
+RUN sudo apt-get update -y && sudo apt-get upgrade
 
-RUN sudo apt install ssh && sudo systemctl ssh start && sudo systemctl ssh enable && service ssh status
+RUN sudo apt-get install ssh && sudo systemctl ssh start && sudo systemctl ssh enable && service ssh status
 
 EXPOSE 3000
 EXPOSE 4200
