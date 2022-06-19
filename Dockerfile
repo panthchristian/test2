@@ -33,4 +33,4 @@ RUN cat /etc/os-release
 #     -e ServerIP="0.0.0.0" \
 #     pihole/pihole:latest
 
-RUN ipconfig
+RUN ip addr
