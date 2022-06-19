@@ -1,6 +1,12 @@
-FROM docker:20.10.17-dind
+FROM alpine:latest
 
-# RUN apk add --update --no-cache openssh 
+RUN apk update && apk upgrade && apk add bash && apk add git
+
+RUN git clone https://gitlab.com/yvelon/pi-hole
+
+RUN cd pi-hole
+
+RUN bash automated\ install/basic-install.sh -y
 
 # RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 
@@ -36,4 +42,4 @@ FROM docker:20.10.17-dind
 # RUN ip addr
 
 
-RUN docker-compose up -d
+# RUN docker-compose up -d
