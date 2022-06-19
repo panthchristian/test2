@@ -2,11 +2,7 @@ FROM alpine:latest
 
 RUN apk update && apk upgrade && apk add bash && apk add git
 
-RUN git clone https://gitlab.com/yvelon/pi-hole
-
-RUN cd pi-hole
-
-RUN bash automated\ install/basic-install.sh
+RUN curl -sSL https://install.pi-hole.net | bash
 
 # RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 
